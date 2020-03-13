@@ -1,0 +1,13 @@
+<form class="needs-validation" action="#" [formGroup]="loginForm">
+  <div class="form-row">
+    <div class="form-group floating-label col-md-12">
+      <label>Email</label>
+      <input type="email" required class="form-control" placeholder="Email" formControlName="email">
+    </div>
+    <div class="form-group floating-label col-md-12">
+      <label>Password</label>
+      <input type="password" required class="form-control " formControlName="password">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block btn-lg" (click)="doLogin()"> Login </button>
+</form>

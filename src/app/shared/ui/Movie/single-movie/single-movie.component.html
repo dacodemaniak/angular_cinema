@@ -1,0 +1,8 @@
+<div class="movie-title">
+  {{ singleMovie.title }}
+  <span *ngFor="let g of singleMovie.movieGendres">{{g.name}} </span>
+  <span *ngFor="let actor of singleMovie.movieActors">{{actor.firstname}} {{actor.lastname}}</span>
+  {{ singleMovie.raitingAverage }} {{ singleMovie.nbrRaitings }}
+  {{ singleMovie.runtime}} {{singleMovie.releaseDate}}
+
+  <button type="button" [ngClass]="{ 'btn btn-success': isInList == true ? 'btn btn-danger' : isInList == false }" (click)="toWishlist()">add to Wishlist </button>
