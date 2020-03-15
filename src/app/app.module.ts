@@ -16,6 +16,7 @@ import {WishService} from './core/service/wish.service';
 import {UiModule} from './shared/ui/ui.module';
 import { CreateComponent } from './pages/home/create/create.component';
 import { UpdateComponent } from './pages/movie/update/update.component';
+import { AccountComponent } from './pages/account/account.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UpdateComponent } from './pages/movie/update/update.component';
     WishComponent,
     CreateComponent,
     UpdateComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,

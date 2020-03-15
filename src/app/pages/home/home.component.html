@@ -1,18 +1,31 @@
-<div class="container pb-5">
- <div class="row">
-   <div class="col-3" *ngFor="let movie of movies | async">
-     <!--    <a [routerLink]="['../','movie', movie.id]">-->
-     <a (click)="onClick(movie.id)">
-       <app-list-movie [item]="movie"></app-list-movie>
-     </a>
-   </div>
- </div>
+<div class="fileter_wrapper text-center py-3">
+  <div class="container">
+    <div class="row">
+      <div class="card w-100">
+        <div class="card-body">
+          <p>here goes movie filter ?</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            Create Movie
+          </button>
+          <app-create></app-create>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="container">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-    Create Movie
-  </button>
-  <app-create></app-create>
+<div class="movie_wrapper py-3">
+  <div class="container p-0">
+    <div class="row">
+      <div class="col-3" *ngFor="let movie of movies | async ">
+        <!--    <a [routerLink]="['../','movie', movie.id]">-->
+        <a (click)="onClick(movie.id)">
+          <app-list-movie [item]="movie"></app-list-movie>
+        </a>
+      </div>
+    </div>
+   </div>
+   <div class="container">
+   </div>
 </div>
 
 

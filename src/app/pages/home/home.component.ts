@@ -11,8 +11,9 @@ import {CreateMovieRequest} from '../../core/Contracts/Requests/movie_requests/c
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  public  movies: Observable<Movie[]>;
+  public movies: Observable<Movie[]>;
   public single: any;
+  public newMovie;
 
   constructor(
     private movieService: MovieService,
@@ -21,6 +22,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.movies = this.movieService.allMovies();
+
+    this.movieService.createdMovie$.subscribe((movie) => {
+      console.log('Received notification of an updated movie');
+      this.newMovie = movie;
+    });
   }
 
   public onClick(id: number): void {

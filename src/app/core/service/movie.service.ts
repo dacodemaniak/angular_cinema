@@ -38,7 +38,7 @@ export class MovieService {
       map((response) => {
         return response.map((movie) => {
           // @ts-ignore
-          this._movie.add(movie.releaseDate);
+          this._movie.add(movie);
           return new Movie().deserialize(movie);
         });
       })

@@ -12,6 +12,8 @@ export class Movie {
   public runtime: number;
   public raitingAverage: DecimalPipe;
   public nbrRaitings: number;
+  public moviePoster: string;
+  public image: string;
   public director: Person;
   public MovieType: MovieType;
   public movieActors: Array<Person>;

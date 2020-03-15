@@ -16,17 +16,15 @@ import {IdentityService} from '../../../../core/service/identity.service';
   styleUrls: ['./single-movie.component.sass']
 })
 export class SingleMovieComponent implements OnInit {
-  isInList = true;
   movie: Movie;
-
 
   constructor(
     public router: ActivatedRoute,
     public movieService: MovieService,
     public wishService: WishService,
-    private identityService: IdentityService,
 
   ) { }
+  
   @Input ()
   singleMovie: any;
 
@@ -41,6 +39,7 @@ export class SingleMovieComponent implements OnInit {
       console.log('Received notification of an updated movie');
       this.singleMovie = updateMovie;
     });
+
   }
 
   toWishlist() {

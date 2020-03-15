@@ -14,10 +14,17 @@ export class IdentityService {
   private appUser: Observable<AuthResult>;
   public request = new UserLoginRequest();
   token: string;
+  public isAuthenticated = false;
 
   constructor(private httpClient: HttpClient) {
     this.appUserSubject$ = new BehaviorSubject<AuthResult>(JSON.parse(localStorage.getItem('appUser')));
     this.appUser = this.appUserSubject$.asObservable();
+
+    // Check if User is logged in
+    const userLogedIn: string = localStorage.getItem('appUser');
+    if (userLogedIn) {
+      this.isAuthenticated = true;
+    }
   }
 
   public get appUserValue(): AuthResult {

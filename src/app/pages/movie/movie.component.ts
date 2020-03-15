@@ -10,7 +10,8 @@ import {UpdateMovieRequest} from '../../core/Contracts/Requests/movie_requests/u
   styleUrls: ['./movie.component.sass']
 })
 export class MovieComponent implements OnInit {
-  public singleMovie: any;
+  public singleMovie: Movie;
+  public update; 
   constructor(
     public activeRoute: ActivatedRoute,
     public movieService: MovieService
@@ -25,7 +26,7 @@ export class MovieComponent implements OnInit {
 
     this.movieService.updatedMovie$.subscribe((updateMovie: UpdateMovieRequest) => {
       console.log('Received notification of an updated movie');
-      this.singleMovie = updateMovie;
+      this.update = updateMovie;
     });
   }
 
