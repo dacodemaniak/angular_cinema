@@ -6,6 +6,7 @@ import { TopNavComponent } from './nav/top-nav/top-nav.component';
 import { SideNavComponent } from './nav/side-nav/side-nav.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './nav/top-nav/search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ResultComponent } from './nav/top-nav/search/result/result.component';
 
 
@@ -15,20 +16,18 @@ import { ResultComponent } from './nav/top-nav/search/result/result.component';
     ListMovieComponent, 
     SingleMovieComponent, 
     TopNavComponent, 
-    SideNavComponent, 
-    SearchComponent, 
-    ResultComponent
+    SideNavComponent, SearchComponent, ResultComponent, 
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     ListMovieComponent,
     SingleMovieComponent,
     TopNavComponent,
     SideNavComponent,
-    SearchComponent
   ]
 })
 export class UiModule { }

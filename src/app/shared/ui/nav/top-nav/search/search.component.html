@@ -1,6 +1,6 @@
 <div class="keyword_wrapper search_filter position-relative" *ngIf="router.url != '/'">
-    <form class="search-form">
-        <input class="form-control" type="search" placeholder="Search Movie" aria-label="Search" formControlName="searchTerm">
+    <form class="search_form" [formGroup] = "movieSearch">
+        <input class="form-control" type="search" placeholder="search for movie" name="searchTerm" formControlName="searchTerm">
     </form>
-    <app-result [DBMovies]="movies"></app-result>
+    <app-result [searchedMovies]="movies"></app-result>
 </div>

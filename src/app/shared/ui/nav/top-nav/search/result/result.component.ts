@@ -1,9 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { MovieService } from 'src/app/core/service/movie.service';
-import { Movie } from 'src/app/core/model/movie';
-import { take } from 'rxjs/operators';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Movie } from 'src/app/core/model/movie';
+import { MovieService } from 'src/app/core/service/movie.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { take, map } from 'rxjs/operators';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-result',
@@ -12,33 +13,26 @@ import { Observable } from 'rxjs';
 })
 export class ResultComponent implements OnInit {
   public movies: Movie[] = [];
-  public searchForm: FormGroup;
-
-  @Input()
-  DBMovies: Observable<Movie[]>;
+  public movie: Movie;
 
   constructor(
-    private movieService: MovieService,
-    ) { }
+    public activeRoute: ActivatedRoute,
+    public movieService: MovieService,
+    private route: Router,
+  ) { }
+  
+  @Input() searchedMovies: Observable<Movie[]>
 
   ngOnInit(): void {
+    this.activeRoute.paramMap.subscribe((paramMap: any) => {
+      this.movieService.singleMovie(paramMap.params.id).subscribe((movie: Movie) => {
+        this.movie = movie;
+      });
+    });
   }
 
-  // public doSearch(): void {
-  //   if (this.searchTerm.value.trim().length > 0) {
-  //     let movies: Movie[] = [];
-  //     this.movieService.byTitle(this.searchTerm.value.trim())
-  //       .pipe(
-  //         take(1)
-  //       )
-  //       .subscribe((Response: Movie[]) => {
-  //         movies = Response.map((movie: any) => {
-  //           return new Movie().deserialize(movie);
-  //         });
-  //         console.log(`Emit : ${JSON.stringify(movies)}`);
-  //         this.moviesEvents.emit(movies);
-  //       });
-  //   }
-  // }
-
+  public onClick(id: number): void {
+    this.route.navigate(['../', 'movie', id]);
+    this.searchedMovies = null;
+  }
 }

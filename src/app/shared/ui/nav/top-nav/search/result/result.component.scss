@@ -1,0 +1,9 @@
+.search_filter--list{
+    position: absolute;
+    width: 100%;
+    background-color: var(--text-white);
+
+    li.search_filter--list-iteem{
+        border-top: 1px solid var(--text-light);
+    }
+}
