@@ -30,15 +30,12 @@ export class MovieService {
    */
   public allMovies(): Observable<Movie[]> {
     const apiRoute = `${environment.movieRoot}`;
-    this._movie = new Set<Movie>();
     return  this.httpClient.get<Movie[]>(
       apiRoute,
     ).pipe(
       take(1),
       map((response) => {
         return response.map((movie) => {
-          // @ts-ignore
-          this._movie.add(movie);
           return new Movie().deserialize(movie);
         });
       })
@@ -120,7 +117,8 @@ export class MovieService {
   }
 
   /**
-   * Delete Movie
+   * Delete Movie by it's id
+   * @param id 
    */
   public deleteMovie(id: number): Observable<any> {
     const apiRoute = `${environment.movieRoot}${id}`;
@@ -137,6 +135,27 @@ export class MovieService {
       catchError((error: any) => {
         console.log(`Error message :  ${JSON.stringify(error)}`);
         return throwError(error.status);
+      })
+    );
+  }
+
+  /**
+   * Search movie by movie title
+   * @param title 
+   */
+  public byTitle(title: string): Observable<Movie[]> {
+    //this._years = new Set<number>();
+    const apiRoute = `${environment.movieSearch}${title}`;
+    return this.httpClient.get<Movie[]>(
+      apiRoute
+    ).pipe(
+      take(1),
+      map((Response) => {
+        return Response.map((item) => {
+          //this._years.add(item.year);
+          //this.years$.next(Array.from(this._years).sort());
+          return new Movie().deserialize(item);
+        });
       })
     );
   }

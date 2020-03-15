@@ -4,19 +4,31 @@ import {ListMovieComponent} from './Movie/list-movie/list-movie.component';
 import { SingleMovieComponent } from './movie/single-movie/single-movie.component';
 import { TopNavComponent } from './nav/top-nav/top-nav.component';
 import { SideNavComponent } from './nav/side-nav/side-nav.component';
+import { RouterModule } from '@angular/router';
+import { SearchComponent } from './nav/top-nav/search/search.component';
+import { ResultComponent } from './nav/top-nav/search/result/result.component';
 
 
 
 @NgModule({
-  declarations: [ListMovieComponent, SingleMovieComponent, TopNavComponent, SideNavComponent],
+  declarations: [
+    ListMovieComponent, 
+    SingleMovieComponent, 
+    TopNavComponent, 
+    SideNavComponent, 
+    SearchComponent, 
+    ResultComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     ListMovieComponent,
     SingleMovieComponent,
     TopNavComponent,
-    SideNavComponent
+    SideNavComponent,
+    SearchComponent
   ]
 })
 export class UiModule { }

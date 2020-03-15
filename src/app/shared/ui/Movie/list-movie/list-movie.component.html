@@ -1,9 +1,9 @@
 <div class="card">
   <div class="card-body d-flex align-items-center">
     <div class="movie_title">
-      <h5 class="title font-weight-bolder"> {{ item.title}} </h5>
+      <h1 class="title font-weight-bolder"> {{ item.title | slice :0:13 }} {{item.title.length > 13 ? '...' : ''}}</h1>
       <small class="text-muted" *ngFor="let gendre of item.movieGendres">{{ gendre.name }} </small>
     </div>
-    <span class="rating ml-auto"> {{item.raitingAverage}}</span>
+    <span class="rating ml-auto font-weight-bolder"> {{item.raitingAverage}}</span>
   </div>
 </div>

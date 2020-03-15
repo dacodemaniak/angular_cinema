@@ -1,18 +1,109 @@
 :root {
     font-size: 14px;
+    list-style: none;
     --text-primary: #b6b6b6;
-    --text-secondary: #red;
+    --text-secondary: red;
 }
     
-.side_nav{
-    height: 100vh;
-    width: 100px;
-    position: absolute;
-
+.navbar.side_nav{
+    position: fixed;
     ul.navbar-nav{
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+
+        li.nav-item{
+            height: 150px;
+            a.nav-link{
+                font-size: 12px;
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &:hover{
+                    color: var(--text-special);
+                }
+            }
+            a.nav-link.active{
+                color: var(--text-special);
+            }
+        }
     }
         
 }
-    
+  
+  /* Small screens */
+  @media only screen and (max-width: 600px) {
+    .navbar.side_nav {
+        background-color: var(--text-dark);
+        z-index: 9999;
+        bottom: 0;
+        height: 5rem;
+        width: 100vw;
+        overflow: hidden;
+
+        ul.navbar-nav{
+            flex-direction: row;
+            justify-content: space-between;
+            li.nav-item{
+                height: auto;
+                width: 25%;
+                a.nav-link{
+                    color: var(--text-primary);
+                    i{
+                        font-size: 28px;
+                    }
+                    p{
+                        display: none;
+                    }
+                &:hover{
+                    color: var(--text-special);
+                    transition: all ease-in-out .3s;
+                }
+                }
+            }
+        }
+    }
+  
+    main {
+      margin: 0 !important;
+    }
+  }
+  
+  /* Large screens */
+  @media only screen and (min-width: 600px) {
+    .navbar {
+        margin-top:56px ;
+        height: 100vh;
+        padding: 0;
+        width: 100px;
+        position: fixed;
+        display: flex;
+        background-color: var(--text-white) !important;
+        text-align: center;
+
+        ul.navbar-nav{
+            justify-content: center;
+            li.nav-item{
+                height: 150px;
+                a.nav-link{
+                    font-size: 12px;
+                    text-decoration: none;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: var(--text-dark);
+                    i{
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
+    }
+  }

@@ -10,7 +10,7 @@ import {CreateMovieRequest} from '../../../core/Contracts/Requests/movie_request
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.sass']
+  styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
   public movie: any;

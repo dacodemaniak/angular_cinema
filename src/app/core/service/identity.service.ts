@@ -22,7 +22,7 @@ export class IdentityService {
 
     // Check if User is logged in
     const userLogedIn: string = localStorage.getItem('appUser');
-    if (userLogedIn) {
+    if (userLogedIn != null) {
       this.isAuthenticated = true;
     }
   }
@@ -53,5 +53,9 @@ export class IdentityService {
   public logout() {
     localStorage.removeItem('appUser');
     this.appUserSubject$.next(null);
+  }
+
+  public register(){
+    console.log('register page things happening here')
   }
 }

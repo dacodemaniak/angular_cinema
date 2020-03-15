@@ -6,7 +6,7 @@ import {MovieService} from '../../../../core/service/movie.service';
 @Component({
   selector: 'app-list-movie',
   templateUrl: './list-movie.component.html',
-  styleUrls: ['./list-movie.component.sass']
+  styleUrls: ['./list-movie.component.scss']
 })
 export class ListMovieComponent implements OnInit {
   constructor(

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-wish',
   templateUrl: './wish.component.html',
-  styleUrls: ['./wish.component.sass']
+  styleUrls: ['./wish.component.scss']
 })
 export class WishComponent implements OnInit {
   public wishMovies: Observable<WishList[]>;

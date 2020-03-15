@@ -13,7 +13,7 @@ import {IdentityService} from '../../../../core/service/identity.service';
 @Component({
   selector: 'app-single-movie',
   templateUrl: './single-movie.component.html',
-  styleUrls: ['./single-movie.component.sass']
+  styleUrls: ['./single-movie.component.scss']
 })
 export class SingleMovieComponent implements OnInit {
   movie: Movie;

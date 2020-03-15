@@ -7,7 +7,7 @@ import {UpdateMovieRequest} from '../../core/Contracts/Requests/movie_requests/u
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.sass']
+  styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
   public singleMovie: Movie;

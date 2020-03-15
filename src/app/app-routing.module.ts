@@ -5,6 +5,8 @@ import {LoginComponent} from './pages/login/login.component';
 import {MovieComponent} from './pages/movie/movie.component';
 import {MovieResolver} from './core/resolver/movie-resolver';
 import {WishComponent} from './pages/wish/wish.component';
+import { LoginGuard } from './core/guard/login.guard';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {
@@ -14,7 +16,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'home',
@@ -28,7 +35,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'wish-list',
+    path: 'wishlist',
     component: WishComponent,
   },
   {

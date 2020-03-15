@@ -1,0 +1,22 @@
+.card{
+    border: none !important;
+    box-shadow: 0px 5px 10px rgba(73, 76, 98, 0.2);
+
+    .movie_title{
+        h1{
+            font-size: 16px !important;
+            color: var(--text-dark);
+            padding: 0;
+            margin: 0;
+        }
+        small{
+            color: var(--text-light) !important;
+        }
+    }
+    .rating{
+        color: var(--text-special) !important;
+        border: solid 1px var(--text-special);
+        padding: 5px 12px;
+        border-radius: 0.25rem;
+    }
+}

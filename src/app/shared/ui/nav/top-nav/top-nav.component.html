@@ -1,1 +1,38 @@
-<p>top-nav works!</p>
+<nav class="navbar fixed-top navbar-expand-lg bg-dark p-0">
+  <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <!-- Navbar Logo Brand Name -->
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active">
+                  <a class="navbar-brand text-white" href="#">Aelion<strong>Cinema</strong> </a>
+              </li>
+          </ul>
+          <!-- Navbar Search Bar -->
+          <div id="keyword_wrapper" class="col-6 position-relative p-0 clearfix" *ngIf="router.url != '/login'">
+              <app-search></app-search>
+          </div>
+          <!-- NavBar actions Login / Sign Up -->
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item active" *ngIf="!identityService.isAuthenticated">
+                  <a class="nav-link text-white pr-3" [routerLink]="['login']" routerLinkActive="active">Login</a>
+              </li>
+              <li class="nav-item dropdown" *ngIf="identityService.isAuthenticated">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="avatar avatar-online">
+                          <img src="https://atmos.atomui.com/default/assets/img/users/user-4.jpg" alt="..." class="avatar-img rounded-circle">
+                      </div>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right">
+                      <a class="dropdown-item" href="#">  My Account</a>
+                      <a class="dropdown-item" href="#">  Reset Password</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" (click)="doLogout()"> Logout</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>

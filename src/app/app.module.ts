@@ -17,6 +17,7 @@ import {UiModule} from './shared/ui/ui.module';
 import { CreateComponent } from './pages/home/create/create.component';
 import { UpdateComponent } from './pages/movie/update/update.component';
 import { AccountComponent } from './pages/account/account.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AccountComponent } from './pages/account/account.component';
     CreateComponent,
     UpdateComponent,
     AccountComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

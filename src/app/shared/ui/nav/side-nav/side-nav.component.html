@@ -1,13 +1,32 @@
-<div class="side_nav nav bg-white">
+<div class="side_nav navbar">
     <ul class="navbar-nav">
-        <li class="logo">
-            CineAppLogo
-        </li>
+        <!-- Nav item -->
         <li class="nav-item">
-            <a class="nav-link" href="">
-                2 navigation item
+            <a href="#" class="nav-link">
+                <i class="las la-film"></i>
+                <p class="link-text p-0">Movie</p>
+            </a>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="las la-tv"></i>
+                <p class="link-text p-0">Tv-Show</p>
+            </a>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="las la-play"></i>
+                <p class="link-text p-0">Animation</p>
+            </a>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['wishlist']" routerLinkActive="active">
+                <i class="las la-ticket-alt"></i>
+                <p class="link-text p-0">My List</p>
             </a>
         </li>
     </ul>
-    <p>Side nav is going here</p>
 </div>

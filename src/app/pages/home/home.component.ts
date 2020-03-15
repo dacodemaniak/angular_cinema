@@ -8,7 +8,7 @@ import {CreateMovieRequest} from '../../core/Contracts/Requests/movie_requests/c
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.sass']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   public movies: Observable<Movie[]>;

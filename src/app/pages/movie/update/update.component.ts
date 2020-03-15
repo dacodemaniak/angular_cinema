@@ -8,7 +8,7 @@ import {HttpResponse} from '@angular/common/http';
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
-  styleUrls: ['./update.component.sass']
+  styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
   public movie: any;

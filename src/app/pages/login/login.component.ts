@@ -7,7 +7,7 @@ import {take} from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
       email: [ '',
         Validators.compose([
           Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)])
+          Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
+        ])
       ],
       password: [ '',  Validators.compose([Validators.required, Validators.minLength(6)])]
     });
@@ -37,7 +38,9 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls.password;
   }
 
-  public get form() { return this.loginForm.controls; }
+  public get form() { 
+    return this.loginForm.controls; 
+  }
 
   public doLogin(): void {
     if (this.loginForm.invalid) {
