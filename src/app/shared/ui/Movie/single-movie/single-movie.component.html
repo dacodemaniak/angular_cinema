@@ -1,19 +1,131 @@
-<div class="header_wrapper"></div>
-<div class="container-fluid p-0">
-  <!-- Header Movie Image -->
-  <!-- Main -->
-  <div class="container">
-    <div class="row">
-      <!-- Base Information -->
-      {{ singleMovie.title }}
-      <span *ngFor="let gendre of singleMovie.movieGendres">{{gendre.name}}</span>
-      <button type="button" class="btn btn-danger" (click)="toWishlist()">add to Wishlist </button>
-      <!-- List Movie actors -->
-      <div class="movie-actors">
-        <span *ngFor="let actor of singleMovie.movieActors">{{actor.firstname}} {{actor.lastname}}</span>
-        {{ singleMovie.raitingAverage }} {{ singleMovie.nbrRaitings }}
-        {{ singleMovie.runtime}} {{singleMovie.releaseDate}}
-      </div>
+<div class="header_wrapper">
+    <div class="img_overlay"></div>
+    <img src="http://localhost:50964/uploads/{{singleMovie.image}}" alt="">
+    <div class="movie_details position-absolute py-4">
+        <div class="container">
+            <div class="base_info">
+                <div class="movie_title">
+                    <h1 class="text-white">{{ singleMovie.title | uppercase }}</h1>
+                </div>
+                <div class="movie_spec d-flex">
+                    <div class="genre pr-3" *ngFor="let genre of singleMovie.movieGendres">
+                        <span> {{ genre.name }} </span>
+                    </div>
+                    <p>|</p>
+                    <div class="runtime px-3">
+                        <span> {{ singleMovie.releaseDate }} </span>
+                    </div>
+                    <p>|</p>
+                    <div class="runtime px-3">
+                        <span> {{ singleMovie.runtime }} min </span>
+                    </div>
+                    <p>|</p>
+                    <div class="runtime px-3">
+                        <span> {{ singleMovie.director.lastname }} </span>
+                    </div>
+                    <div class="wish-action">
+                        <a (click)="toWishlist()"> + add to Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+<div class="container-fluid p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <!-- Base information -->
+                <div class="base_info py-4">
+                    <div class="title py-3">
+                        <h3 class="p-0 m-0">About Movie</h3>
+                        <small class="p-0 m-0">Base infomation for the movie</small>
+                    </div>            
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <p class="p-0 m-0"><strong>Title:</strong> {{ singleMovie.title }}</p>
+                            <p class="p-0 m-0"><strong>Realized by: </strong> {{ singleMovie.director.lastname }} {{ singleMovie.director.firstname }}</p>
+                            <p class="p-0 m-0"><strong>Release Date:</strong> {{ singleMovie.releaseDate }}</p>
+                            <p class="p-0 m-0"><strong>Resume:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Quis fugiat dolorum quasi accusantium corrupti voluptatem enim minus sit. 
+                                Sint voluptatem suscipit dolorem eum accusamus saepe est numquam velit minus 
+                                inventore?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Quis fugiat dolorum quasi accusantium corrupti voluptatem enim minus sit. 
+                                Sint voluptatem suscipit dolorem eum accusamus saepe est numquam velit minus 
+                                inventore?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="base_actors position-relative py-4">
+                    <div class="content-header d-flex align-items-center">
+                        <div class="title py-3">
+                            <h3 class="p-0 m-0">Movie Actors</h3>
+                            <small class="p-0 m-0">List of movie Actors</small>
+                        </div>
+                        <div class="admin_action ml-auto">
+                            <button type="button" class="btn btn-special">add Actors</button>
+                        </div>
+                    </div>
+                    <div class="card border-0 p-0">
+                        <div class="card-body p-0">
+                            <table id="actor_table" class="table border-0 p-0 m-0" style="width:100%">
+    
+                                <tbody>
+                                    <tr class="d-flex align-items-center" *ngFor="let actor of singleMovie.movieActors">
+                                        <td class="text-center"> 
+                                            <img height="60px" src="http://localhost:50964/uploads/{{ actor.avatar }}" alt=""> 
+                                        </td>
+                                        <td class="text-center"> {{ actor.firstname }} {{ actor.lastname }} </td>
+                                        <td class="text-center ml-auto"> {{ actor.movieRole }} </td>
+                                        <td class="position-relative">
+                                            <div class="card-controls">
+                                                <div class="dropdown">
+                                                    <a href="!#" data-toggle="dropdown" aria-haspopup="true"aria-expanded="false"> 
+                                                        <i class="las la-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: -10px; transform: translate3d(18px, 25px, 0px);">
+                                                        <a class="dropdown-item" href="">Voir</a>
+                                                        <a class="dropdown-item" href="">Modifier</a>
+                                                        <a class="dropdown-item" href="">Supprimer</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr class="d-flex align-items-center">
+                                        <td class="text-center"> 
+                                            <img height="60px" src="" alt=""> 
+                                        </td>
+                                        <td class="text-center"> Test person 2 </td>
+                                        <td class="text-center ml-auto"> Role name</td>
+                                        <td class="position-relative">
+                                            <div class="card-controls">
+                                                <div class="dropdown">
+                                                    <a href="!#" data-toggle="dropdown" aria-haspopup="true"aria-expanded="false"> 
+                                                        <i class="las la-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: -10px; transform: translate3d(18px, 25px, 0px);">
+                                                        <a class="dropdown-item" href="">Voir</a>
+                                                        <a class="dropdown-item" href="">Modifier</a>
+                                                        <a class="dropdown-item" href="">Supprimer</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+        
+                            </table>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

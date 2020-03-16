@@ -1,5 +1,5 @@
 <app-top-nav></app-top-nav>
-<app-side-nav></app-side-nav>
+<app-side-nav *ngIf="router.url != '/login' && router.url != '/register'"></app-side-nav>
 <main>
     <router-outlet></router-outlet>
 </main>

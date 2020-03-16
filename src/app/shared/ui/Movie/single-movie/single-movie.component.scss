@@ -1,7 +1,90 @@
+// Single movie header style
 .header_wrapper{
+    position: relative;
     height: 65vh;
-    background-image: url(../../../../../assets/img/imh_header.png);
+    // background-image: url(../../../../../assets/img/imh_header.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    img{
+        position: relative;
+        object-fit: cover;
+        height: 65vh;
+        width: 100%;
+    }
+    .img_overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        background-image: linear-gradient(rgba(73, 76, 98, 0.4), #2b2d3c);
+        height: 100%;
+    }
+    .movie_details{
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+
+        .base_info{
+            width: 100%;
+            color: white;
+            .movie_spec{
+                color: var(--text-light);
+                .wish-action{
+                    cursor: pointer;
+                    &:hover{
+                        color: var(--text-special);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Base Info movie style
+.base_info{
+    color: var(--text-dark);
+    .title{
+        h3{
+            font-weight: bold;
+        }
+        small{
+            color: var(--text-light);
+        }
+    }
+}
+// Single Movie Actors style
+
+.base_actors{
+    color: var(--text-dark);
+    .title{
+        h3{
+            font-weight: bold;
+        }
+        small{
+            color: var(--text-light);
+        }
+    }
+
+    #actor_table{
+        tbody{
+            td, 
+            th{
+                border-top: none !important;
+                padding: 0.5rem !important;
+            }
+            tr{
+                &:nth-child(2n){
+                    border-top: solid 1px #f2f2f2;
+                }
+            }
+        }
+        
+
+    }
 }

@@ -10,15 +10,15 @@ export class Accaount {
         // tslint:disable-next-line:no-unused-expression
         a.id < b.id ? -1 : 1;
         return 0;
-      }
+    }
     
-      public compareTo(account: Accaount): boolean {
+    public compareTo(account: Accaount): boolean {
         return this.id === account.id;
-      }
+    }
     
-      public deserialize(datas: any): Accaount {
+    public deserialize(datas: any): Accaount {
         Object.assign(this, datas);
         return this;
-      }
+    }
 }
 

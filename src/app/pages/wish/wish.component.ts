@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./wish.component.scss']
 })
 export class WishComponent implements OnInit {
-  public wishMovies: Observable<WishList[]>;
+  public movies: Observable<WishList[]>;
   public movie: Movie;
 
   constructor(
@@ -22,8 +22,8 @@ export class WishComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.wishMovies = this.wishService.allWishedMovies();
-    console.log(JSON.stringify(this.wishMovies));
+    this.movies = this.wishService.allWishedMovies();
+    console.log(JSON.stringify(this.movies));
 
   }
 

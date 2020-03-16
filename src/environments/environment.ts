@@ -10,9 +10,11 @@ export const environment = {
   movieRoot: 'http://localhost:50964/api/v1/movie/',
   movieSearch: 'http://localhost:50964/api/v1/movie/search/',
   personRoot: 'http://localhost:50964/api/v1/person/',
+  personSearch: 'http://localhost:50964/api/v1/person/search',
   commentRoot: 'http://localhost:50964/api/v1/comment/',
   ratingRoot: 'http://localhost:50964/api/v1/raiting/',
-  wishList: 'http://localhost:50964/api/v1/myWishlist'
+  wishList: 'http://localhost:50964/api/v1/myWishlist',
+  getImage: 'http://localhost:50964/uploads/ed291545-d5bb-484b-9b6e-e2b87a36e71c.jpg'
 };
 
 /*

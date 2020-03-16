@@ -16,7 +16,9 @@ export class IdentityService {
   token: string;
   public isAuthenticated = false;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(
+    private httpClient: HttpClient ) {
+
     this.appUserSubject$ = new BehaviorSubject<AuthResult>(JSON.parse(localStorage.getItem('appUser')));
     this.appUser = this.appUserSubject$.asObservable();
 
@@ -24,6 +26,9 @@ export class IdentityService {
     const userLogedIn: string = localStorage.getItem('appUser');
     if (userLogedIn != null) {
       this.isAuthenticated = true;
+    } else {
+      this.appUser = null;
+      this.appUserSubject$.next(JSON.parse(localStorage.getItem('appUser')));
     }
   }
 
@@ -38,7 +43,7 @@ export class IdentityService {
 
     return this.httpClient.post<any>(
       apiRoute,
-      this.request
+      this.request,
     ).pipe(
       map( appUser => {
         if (appUser && appUser.token) {
