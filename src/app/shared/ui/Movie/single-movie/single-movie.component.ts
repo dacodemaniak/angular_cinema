@@ -25,15 +25,21 @@ export class SingleMovieComponent implements OnInit {
 
   ) { }
   
+  /**
+  * singleMovie come from the "parent" component i.e in your case : movie-component.ts
+  **/
   @Input ()
   singleMovie: any;
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe((paramMap: any) => {
-      this.movieService.singleMovie(paramMap.params.id).subscribe((movie: any) => {
-        this.singleMovie = movie;
-      });
-    });
+    /**
+    * These lines does not have to exists, singleMovie is well available from @Input() decorator
+    **/
+    //this.router.paramMap.subscribe((paramMap: any) => {
+    //  this.movieService.singleMovie(paramMap.params.id).subscribe((movie: any) => {
+    //    this.singleMovie = movie;
+    //  });
+    //});
 
     this.movieService.updatedMovie$.subscribe((updateMovie: UpdateMovieRequest) => {
       console.log('Received notification of an updated movie');
